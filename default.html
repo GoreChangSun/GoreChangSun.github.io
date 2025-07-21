@@ -1,5 +1,56 @@
 <script src="https://balkan.app/js/OrgChart.js"></script>
 
+//JavaScript
+
+
+<script>
+
+
+function importJSONHandler() {
+    chart.importJSON();
+}
+function importXMLHandler() {
+    chart.importXML();
+}
+
+function importCSVHandler() {
+    chart.importCSV();
+}
+
+
+var chart = new OrgChart(document.getElementById("tree"), {
+    menu: {
+        xml_export: { text: "Export XML" },
+        csv_export: { text: "Export CSV" },
+        json_export: { text: "Export JSON" },
+        jsonImport: { text: "Import JSON", icon: OrgChart.icon.json(24, 24, 'red'), onClick: importJSONHandler },
+        xmlImport: { text: "Import XML", icon: OrgChart.icon.xml(24, 24, 'red'), onClick: importXMLHandler },
+        csvImport: { text: "Import CSV", icon: OrgChart.icon.csv(24, 24, 'red'), onClick: importCSVHandler }
+    },
+    mouseScrool: OrgChart.action.none,
+    nodeBinding: {
+        field_0: "id",
+        field_1: "pid"
+    },
+    tags: {
+        g: {
+            template: "group"
+        }
+    },
+    nodes: [
+        { id: 1 },
+        { id: 2, pid: 1, tags: ["g"] },
+        { id: 3, pid: 1, tags: ["g"] },
+        { id: 4, stpid: 2 },
+        { id: 5, stpid: 2 },
+        { id: 6, stpid: 3 },
+        { id: 7, stpid: 3 }
+    ]
+});
+
+
+</script>
+
 <div id="tree"></div>
 <script>
     let chart = new OrgChart("#tree", {
