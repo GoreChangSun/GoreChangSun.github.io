@@ -134,9 +134,13 @@ chart.on('remove', (sender, nodeId) => {
 
 
 chart.load([
-    { id: 1, name: "Amber McKenzie", title: "CEO" },
-    { id: 2, pid: 1, name: "Ava Field", title: "HR" },
-    { id: 3, pid: 1, name: "Peter Stevens", title: "Manager" }
+        { id: 1 },
+        { id: 2, pid: 1, tags: ["g"] },
+        { id: 3, pid: 1, tags: ["g"] },
+        { id: 4, stpid: 2 },
+        { id: 5, stpid: 2 },
+        { id: 6, stpid: 3 },
+        { id: 7, stpid: 3 }
 ])
   
 
