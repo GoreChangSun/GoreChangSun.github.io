@@ -22,7 +22,12 @@ function pdfPreview(){
         footer: '<text>My Footer. Page {current-page} of {total-pages}</text>'
     });
 }
-    
+function pngPreview(){
+    chart.pngPreviewUI.show({
+        header: '<text>My Header</text>',
+        footer: '<text>My Footer. Page {current-page} of {total-pages}</text>'
+    });
+}
 
 var chart = new OrgChart(document.getElementById("tree"), {
 
@@ -35,7 +40,11 @@ var chart = new OrgChart(document.getElementById("tree"), {
         text: "Export PDF", 
         icon: OrgChart.icon.pdf(24, 24, "#7A7A7A"), 
         onClick: pdfPreview},
-
+        pngPreview: {
+        text: "Export PNG", 
+        icon: OrgChart.icon.png(24, 24, "#7A7A7A"), 
+        onClick: pngPreview}
+            
         jsonImport: { text: "Import JSON", icon: OrgChart.icon.json(24, 24, 'red'), onClick: importJSONHandler },
         xmlImport: { text: "Import XML", icon: OrgChart.icon.xml(24, 24, 'red'), onClick: importXMLHandler },
         csvImport: { text: "Import CSV", icon: OrgChart.icon.csv(24, 24, 'red'), onClick: importCSVHandler }
