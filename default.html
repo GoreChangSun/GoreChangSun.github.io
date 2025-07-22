@@ -56,7 +56,7 @@ var chart = new OrgChart(document.getElementById("tree"), {
       mouseScrool: OrgChart.action.none,
       template: "olivia",
       enableDragDrop: true,      
-    menu: {
+      menu: {
         xml_export: { text: "Export XML" },
         csv_export: { text: "Export CSV" },
         json_export: { text: "Export JSON" },   
@@ -72,7 +72,7 @@ var chart = new OrgChart(document.getElementById("tree"), {
         jsonImport: { text: "Import JSON", icon: OrgChart.icon.json(24, 24, 'red'), onClick: importJSONHandler },
         xmlImport: { text: "Import XML", icon: OrgChart.icon.xml(24, 24, 'red'), onClick: importXMLHandler },
         csvImport: { text: "Import CSV", icon: OrgChart.icon.csv(24, 24, 'red'), onClick: importCSVHandler }
-    },
+       },
     
     nodeBinding: {
         field_0: "name",
