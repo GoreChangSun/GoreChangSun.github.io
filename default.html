@@ -35,12 +35,12 @@ function pngPreview(){
 //JavaScript
 
 let addButton = 
-    `<svg xmlns="http://www.w3.org/2000/svg" x=10 y=10 width="20" height="20" viewBox="0 0 16 16"><path fill="#039BE5" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7-4v3H4v2h3v3h2V9h3V7H9V4z"/></svg>`;
+    '<svg xmlns="http://www.w3.org/2000/svg" x=10 y=10 width="20" height="20" viewBox="0 0 16 16"><path fill="#039BE5" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7-4v3H4v2h3v3h2V9h3V7H9V4z"/></svg>';
 let editButton = 
-    `<svg xmlns="http://www.w3.org/2000/svg" x=40 y=10 width="20" height="20" viewBox="0 0 15 15"><path fill="#FFCA28" fill-rule="evenodd" d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm8.146-3.354a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708L6.707 11H4.5a.5.5 0 0 1-.5-.5V8.293l4.146-4.147Z" clip-rule="evenodd"/></svg>`;
+    '<svg xmlns="http://www.w3.org/2000/svg" x=40 y=10 width="20" height="20" viewBox="0 0 15 15"><path fill="#FFCA28" fill-rule="evenodd" d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm8.146-3.354a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708L6.707 11H4.5a.5.5 0 0 1-.5-.5V8.293l4.146-4.147Z" clip-rule="evenodd"/></svg>';
 
 let deleteButton = 
-    `<svg xmlns="http://www.w3.org/2000/svg" x=70 y=10 width="20" height="20" viewBox="0 0 16 16"><path fill="#F57C00" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-1.414l-2-2L4.586 6l2 2l-2 2L6 11.414l2-2l2 2L11.414 10l-2-2l2-2L10 4.586z"/></svg>`;
+    '<svg xmlns="http://www.w3.org/2000/svg" x=70 y=10 width="20" height="20" viewBox="0 0 16 16"><path fill="#F57C00" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-1.414l-2-2L4.586 6l2 2l-2 2L6 11.414l2-2l2 2L11.414 10l-2-2l2-2L10 4.586z"/></svg>';
 
 OrgChart.templates.olivia.field_2 = addButton + '<rect data-add-button="{val}" x="10" y="10" rx="5" ry="5" fill="red" opacity="0" height="50" width="50"></rect> ';
 OrgChart.templates.olivia.field_3 = editButton + '<rect data-edit-button="{val}" x="40" y="10" rx="5" ry="5" fill="red" opacity="0" height="50" width="50"></rect> ';
