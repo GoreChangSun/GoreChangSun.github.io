@@ -58,15 +58,14 @@ var chart = new OrgChart(document.getElementById("tree"), {
         csv_export: { text: "Export CSV" },
         json_export: { text: "Export JSON" },   
         
-          pdfPreview: {
+        pdfPreview: {
         text: "Export PDF", 
         icon: OrgChart.icon.pdf(24, 24, "#7A7A7A"), 
         onClick: pdfPreview},
         pngPreview: {
         text: "Export PNG", 
         icon: OrgChart.icon.png(24, 24, "#7A7A7A"), 
-        onClick: pngPreview},
-            
+        onClick: pngPreview},            
         jsonImport: { text: "Import JSON", icon: OrgChart.icon.json(24, 24, 'red'), onClick: importJSONHandler },
         xmlImport: { text: "Import XML", icon: OrgChart.icon.xml(24, 24, 'red'), onClick: importXMLHandler },
         csvImport: { text: "Import CSV", icon: OrgChart.icon.csv(24, 24, 'red'), onClick: importCSVHandler }
@@ -134,14 +133,11 @@ chart.on('remove', (sender, nodeId) => {
     alert('Node ' + nodeId + ' is deleting...');
 });
 
-
-
 chart.load([
     { id: 1, name: "Amber McKenzie", title: "CEO" },
     { id: 2, pid: 1, name: "Ava Field", title: "HR" },
     { id: 3, pid: 1, name: "Peter Stevens", title: "Manager" }
 ])
-
 
 </script>
 
