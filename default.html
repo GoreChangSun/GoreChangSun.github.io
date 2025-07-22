@@ -9,16 +9,7 @@
 
 
 <script>
-function importJSONHandler() {
-    chart.importJSON();
-}
-function importXMLHandler() {
-    chart.importXML();
-}
 
-function importCSVHandler() {
-    chart.importCSV();
-}
 
 function pdfPreview(){
     chart.pdfPreviewUI.show({
@@ -58,10 +49,10 @@ var chart = new OrgChart(document.getElementById("tree"), {
         xml_export: { text: "Export XML" },
         csv_export: { text: "Export CSV" },
         json_export: { text: "Export JSON" }, 
-        pdfPreview: {   text: "Export PDF",     icon: OrgChart.icon.pdf(24, 24, "#7A7A7A"),    onClick: pdfPreview},
-        pngPreview: {   text: "Export PNG",     icon: OrgChart.icon.png(24, 24, "#7A7A7A"),     onClick: pngPreview},            
-        jsonImport: { text: "Import JSON", icon: OrgChart.icon.json(24, 24, 'red'), onClick: importJSONHandler },
-        xmlImport: { text: "Import XML", icon: OrgChart.icon.xml(24, 24, 'red'), onClick: importXMLHandler },
+        pdfPreview: {   text: "Export PDF",     icon: OrgChart.icon.pdf(24, 24, "#7A7A7A"),    onClick:   chart.pdfPreviewUI.show({header: '<text>My Header</text>', footer: '<text>My Footer. Page {current-page} of {total-pages}</text>'});},
+        pngPreview: {   text: "Export PNG",     icon: OrgChart.icon.png(24, 24, "#7A7A7A"),     onClick:  chart.pngPreviewUI.show({header: '<text>My Header</text>', footer: '<text>My Footer. Page {current-page} of {total-pages}</text>'});},            
+        jsonImport: { text: "Import JSON", icon: OrgChart.icon.json(24, 24, 'red'), onClick: chart.importJSON();},
+        xmlImport: { text: "Import XML", icon: OrgChart.icon.xml(24, 24, 'red'), onClick: chart.importXML();},
         csvImport: { text: "Import CSV", icon: OrgChart.icon.csv(24, 24, 'red'), onClick:  chart.importCSV(); }
        },
     
