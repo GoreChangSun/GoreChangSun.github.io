@@ -25,8 +25,7 @@ var chart = new OrgChart(document.getElementById("tree"), {
         xml_export: { text: "Export XML" },
         csv_export: { text: "Export CSV" },
         json_export: { text: "Export JSON" },           
-        export_pdf: { text: "Export PDF",icon: OrgChart.icon.pdf(24, 24, "#7A7A7A"),onClick: pdf}, 
-        png: { text: "Export PNG" },
+
         jsonImport: { text: "Import JSON", icon: OrgChart.icon.json(24, 24, 'red'), onClick: importJSONHandler },
         xmlImport: { text: "Import XML", icon: OrgChart.icon.xml(24, 24, 'red'), onClick: importXMLHandler },
         csvImport: { text: "Import CSV", icon: OrgChart.icon.csv(24, 24, 'red'), onClick: importCSVHandler }
