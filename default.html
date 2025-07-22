@@ -1,6 +1,5 @@
  <html>
-    
-  
+      
   <head>
 <style>
 #tree {
@@ -17,17 +16,6 @@ button{
     background-color: #2E2E2E;
 }
 </style>
-<script>
- document.getElementById('ecsv').addEventListener('click', function () {
-        chart.exportCSV('My.csv');
-    });
-
-document.getElementById('icsv').addEventListener('click', function () {
-        chart.importCSV();
-    });
-</script>
- 
-
     </head>
 <body>
  <script src="https://balkan.app/js/OrgChart.js"></script>
@@ -153,7 +141,13 @@ chart.load([
     { id: 3, pid: 1, name: "", title: "" }
 ]);
 };
+ document.getElementById('ecsv').addEventListener('click', function () {
+        chart.exportCSV('My.csv');
+    });
 
+document.getElementById('icsv').addEventListener('click', function () {
+        chart.importCSV();
+    });
  
 </script>
 
