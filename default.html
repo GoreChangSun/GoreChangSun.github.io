@@ -50,9 +50,6 @@ window.onload = function () {
     OrgChart.templates.olivia.plus = '<circle cx="15" cy="15" r="15" fill="#ffffff" stroke="#aeaeae" stroke-width="1"></circle>'
         + '<text text-anchor="middle" style="font-size: 18px;cursor:pointer;" fill="#757575" x="15" y="22">{collapsed-children-count}</text>';
 
-  function importCSVHandler() {
-    chart.importCSV();
-};
 var chart = new OrgChart(document.getElementById("tree"), {
       mouseScrool: OrgChart.action.none,
       template: "olivia",
@@ -65,7 +62,7 @@ var chart = new OrgChart(document.getElementById("tree"), {
         pngPreview: {   text: "Export PNG",     icon: OrgChart.icon.png(24, 24, "#7A7A7A"),     onClick: pngPreview},            
         jsonImport: { text: "Import JSON", icon: OrgChart.icon.json(24, 24, 'red'), onClick: importJSONHandler },
         xmlImport: { text: "Import XML", icon: OrgChart.icon.xml(24, 24, 'red'), onClick: importXMLHandler },
-        csvImport: { text: "Import CSV", icon: OrgChart.icon.csv(24, 24, 'red'), onClick: importCSVHandler }
+        csvImport: { text: "Import CSV", icon: OrgChart.icon.csv(24, 24, 'red'), onClick:  chart.importCSV(); }
        },
     
     nodeBinding: {
