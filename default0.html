@@ -95,10 +95,10 @@ let editButton =
 let deleteButton = 
     '<svg xmlns="http://www.w3.org/2000/svg" x=70 y=10 width="20" height="20" viewBox="0 0 16 16"><path fill="#F57C00" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-1.414l-2-2L4.586 6l2 2l-2 2L6 11.414l2-2l2 2L11.414 10l-2-2l2-2L10 4.586z"/></svg>';
 
-OrgChart.templates.olivia.field_2 = addButton + '<rect data-add-button="{val}" x="10" y="10" rx="5" ry="5" fill="red" opacity="0" height="50" width="50"></rect> ';
-OrgChart.templates.olivia.field_3 = editButton + '<rect data-edit-button="{val}" x="40" y="10" rx="5" ry="5" fill="red" opacity="0" height="50" width="50"></rect> ';
-OrgChart.templates.olivia.field_4 = deleteButton + '<rect data-delete-button="{val}" x="70" y="10" rx="5" ry="5" fill="red" opacity="0" height="50" width="50"></rect> ';
-OrgChart.templates.olivia.field_number_children = '<circle cx="60" cy="110" r="15" fill="#F57C00"></circle><text fill="#ffffff" x="60" y="115" text-anchor="middle">{val}</text>';
+OrgChart.templates.rony.field_2 = addButton + '<rect data-add-button="{val}" x="10" y="10" rx="5" ry="5" fill="red" opacity="0" height="50" width="50"></rect> ';
+OrgChart.templates.rony.field_3 = editButton + '<rect data-edit-button="{val}" x="40" y="10" rx="5" ry="5" fill="red" opacity="0" height="50" width="50"></rect> ';
+OrgChart.templates.rony.field_4 = deleteButton + '<rect data-delete-button="{val}" x="70" y="10" rx="5" ry="5" fill="red" opacity="0" height="50" width="50"></rect> ';
+OrgChart.templates.rony.field_number_children = '<circle cx="60" cy="110" r="15" fill="#F57C00"></circle><text fill="#ffffff" x="60" y="115" text-anchor="middle">{val}</text>';
 
 
  
@@ -110,7 +110,7 @@ window.onload = function () {
 
      chart = new OrgChart(document.getElementById("tree"), {
       mouseScrool: OrgChart.action.none,
-      template: "olivia",
+      template: "rony",
       enableDragDrop: true,    
       nodeBinding: {
         field_0: "name",
