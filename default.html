@@ -1,0 +1,193 @@
+ <html>
+      
+  <head>
+   <style>
+    html, body {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#tree {
+    width: 100%;
+    height: 100%;
+}
+
+button{
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+
+.buttons {
+    background-color: #2E2E2E;
+}
+ html,
+ body {
+                padding: 0;
+                margin: 0;
+                height: 100%;
+                overflow: hidden;
+                font-family: Helvetica, Arial, sans-serif;
+            }
+.btns {
+                width: 200px;
+                z-index: 500000;
+                position: absolute;
+                bottom: 30px;
+                left: 20px;
+                text-align: center;
+            }
+.getting-started {
+                width: 100%;
+                height: 40px;
+                background-color: #039be5;
+                color: #fff;
+                cursor: pointer;
+                border-radius: 20px;
+            }
+        
+.getting-started svg {
+                    float: left;
+                }
+        
+.getting-started span {
+                    display: inline-block;
+                    padding-top: 13px;
+                }
+ 
+            </style>
+    </head>
+<body>
+ <script src="https://balkan.app/js/OrgChart.js"></script>
+<div id="function" background-color: #EBEBEB>
+  <h1>Gore Mutual Insurance PX AI tool</h1>
+</div>
+<div class="buttons">
+    <button id="icsv">Import CSV</button>
+    <button id="ecsv">Export CSV</button>
+</div>
+ 
+<div id="tree"></div>
+
+
+<script>
+function pdfPreview(){
+    chart.pdfPreviewUI.show({
+        header: '<text>My Header</text>',
+        footer: '<text>My Footer. Page {current-page} of {total-pages}</text>'
+    });
+}
+function pngPreview(){
+    chart.pngPreviewUI.show({
+        header: '<text>My Header</text>',
+        footer: '<text>My Footer. Page {current-page} of {total-pages}</text>'
+    });
+}
+ 
+ 
+let addButton = 
+    '<svg xmlns="http://www.w3.org/2000/svg" x=10 y=10 width="20" height="20" viewBox="0 0 16 16"><path fill="#039BE5" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7-4v3H4v2h3v3h2V9h3V7H9V4z"/></svg>';
+let editButton = 
+    '<svg xmlns="http://www.w3.org/2000/svg" x=40 y=10 width="20" height="20" viewBox="0 0 15 15"><path fill="#FFCA28" fill-rule="evenodd" d="M0 7.5a7.5 7.5 0 1 1 15 0a7.5 7.5 0 0 1-15 0Zm8.146-3.354a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708L6.707 11H4.5a.5.5 0 0 1-.5-.5V8.293l4.146-4.147Z" clip-rule="evenodd"/></svg>';
+let deleteButton = 
+    '<svg xmlns="http://www.w3.org/2000/svg" x=70 y=10 width="20" height="20" viewBox="0 0 16 16"><path fill="#F57C00" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-1.414l-2-2L4.586 6l2 2l-2 2L6 11.414l2-2l2 2L11.414 10l-2-2l2-2L10 4.586z"/></svg>';
+
+OrgChart.templates.olivia.field_2 = addButton + '<rect data-add-button="{val}" x="10" y="10" rx="5" ry="5" fill="red" opacity="0" height="50" width="50"></rect> ';
+OrgChart.templates.olivia.field_3 = editButton + '<rect data-edit-button="{val}" x="40" y="10" rx="5" ry="5" fill="red" opacity="0" height="50" width="50"></rect> ';
+OrgChart.templates.olivia.field_4 = deleteButton + '<rect data-delete-button="{val}" x="70" y="10" rx="5" ry="5" fill="red" opacity="0" height="50" width="50"></rect> ';
+
+window.onload = function () {
+      var chart;
+      OrgChart.templates.olivia.plus = '<circle cx="15" cy="15" r="15" fill="#ffffff" stroke="#aeaeae" stroke-width="1"></circle>'
+        + '<text text-anchor="middle" style="font-size: 18px;cursor:pointer;" fill="#757575" x="15" y="22">{collapsed-children-count}</text>';
+     chart = new OrgChart(document.getElementById("tree"), {
+      mouseScrool: OrgChart.action.none,
+      template: "olivia",
+      enableDragDrop: true,    
+      nodeBinding: {
+        field_0: "name",
+        field_1: "title",
+        img_0: "img",
+        field_2: "id",
+        field_3: "id",
+        field_4: "id"
+    },
+    tags: {
+        g: {
+            template: "group"
+        }
+    },
+    nodes: [
+        { id: 1 },
+        { id: 2, pid: 1, tags: ["g"] },
+        { id: 3, pid: 1, tags: ["g"] },
+        { id: 4, stpid: 2 },
+        { id: 5, stpid: 2 },
+        { id: 6, stpid: 3 },
+        { id: 7, stpid: 3 }
+    ]
+});
+
+chart.on('redraw', (sender) => {
+    
+    let addButtons = document.querySelectorAll('*[data-add-button]');
+    addButtons.forEach(addButton => {
+        addButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.cancelBubble = true;
+            chart.addNode({ id: chart.generateId(), pid: addButton.getAttribute('data-add-button')});
+            return false;
+        });
+    });
+
+    let editButtons = document.querySelectorAll('*[data-edit-button]');
+    editButtons.forEach(editButton => {
+        editButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.cancelBubble = true;
+            chart.editUI.show(editButton.getAttribute('data-edit-button'));
+            return false;
+        });
+    });
+
+    let removeButtons = document.querySelectorAll('*[data-delete-button]');
+    removeButtons.forEach(removeButton => {
+        removeButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.cancelBubble = true;
+            chart.removeNode(removeButton.getAttribute('data-delete-button'), null, true);
+            return false;
+        });
+    });
+
+});
+
+chart.on('remove', (sender, nodeId) => {
+    alert('Node ' + nodeId + ' is deleting...');
+});
+
+chart.load([
+    { id: 1, name: "", title: "" },
+    { id: 2, pid: 1, name: "", title: "" },
+    { id: 3, pid: 1, name: "", title: "" }
+]);
+ document.getElementById('ecsv').addEventListener('click', function () {
+        chart.exportCSV('My.csv');
+    });
+
+document.getElementById('icsv').addEventListener('click', function () {
+        chart.importCSV();
+    });
+ 
+};
+
+ 
+</script>
+
+</body>
+
+ </html>
+
