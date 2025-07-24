@@ -137,6 +137,41 @@ window.onload = function () {
     ]
 });
 
+var iterate = function (c, n, args){
+
+         for (i = 0; i<n.childrenIds.length; i++) {
+          var node = c.getNode(n.childrenIds[i]);
+           if (node.stChildrenIds.length <= 0) {
+              args.count += 1;
+           }
+         }
+
+         
+       for(var i = 0; i < n.stChildrenIds.length; i++){
+       		var node = c.getNode(n.stChildrenIds[i]);
+          iterate(c, node, args);  
+        }
+        
+        for(var i = 0; i < n.childrenIds.length; i++){    
+        		
+            var node = c.getNode(n.childrenIds[i]);
+            	iterate(c, node, args);  
+            
+        }
+       	args.count += n.stChildrenIds.length;
+    }
+
+     chart.on('field', function(sender, args){
+         if (args.name == "numberOfChildren"){
+             var arg = {
+                 count: 0
+             };
+             iterate(sender, chart.getNode(args.data.id), arg);
+             args.value = arg.count;
+         }
+     });
+
+ 
 chart.on('redraw', (sender) => {
     
     let addButtons = document.querySelectorAll('*[data-add-button]');
