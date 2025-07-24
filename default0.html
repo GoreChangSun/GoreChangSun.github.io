@@ -120,8 +120,30 @@ window.onload = function () {
       OrgChart.templates.olivia.plus = '<circle cx="15" cy="15" r="15" fill="#ffffff" stroke="#aeaeae" stroke-width="1"></circle>'
         + '<text text-anchor="middle" style="font-size: 18px;cursor:pointer;" fill="#757575" x="15" y="22">{collapsed-children-count}</text>';
 
+    var  nodes= [
+        { id: 1 },
+        { id: 2, pid: 1, tags: ["g"] },
+        { id: 3, pid: 1, tags: ["g"] },
+        { id: 4, stpid: 2 },
+        { id: 5, stpid: 2 },
+        { id: 6, stpid: 3 },
+        { id: 7, stpid: 3 }
+    ];
+ for (var i = 0; i < nodes.length; i++) {
+        var node = nodes[i];
+        switch (node.title) {
+            case "QA":
+                node.tags = ["QA"];
+                break;
+            case "Marketer":
+            case "Designer":
+            case "Sales Manager":
+                node.tags = ["Marketing"];
+                break;
+        }
+    }
 
-
+   
      chart = new OrgChart(document.getElementById("tree"), {
       mouseScrool: OrgChart.action.none,
       template: "olivia",
@@ -141,15 +163,7 @@ window.onload = function () {
             template: "group"
         }
     },
-    nodes: [
-        { id: 1 },
-        { id: 2, pid: 1, tags: ["g"] },
-        { id: 3, pid: 1, tags: ["g"] },
-        { id: 4, stpid: 2 },
-        { id: 5, stpid: 2 },
-        { id: 6, stpid: 3 },
-        { id: 7, stpid: 3 }
-    ]
+    nodes: nodes
 });
 
   
