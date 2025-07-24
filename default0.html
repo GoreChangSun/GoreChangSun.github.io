@@ -121,20 +121,6 @@ window.onload = function () {
         + '<text text-anchor="middle" style="font-size: 18px;cursor:pointer;" fill="#757575" x="15" y="22">{collapsed-children-count}</text>';
 
 
-    for (var i = 0; i < nodes.length; i++) {
-        var node = nodes[i];
-        switch (node.title) {
-            case "QA":
-                node.tags = ["QA"];
-                break;
-            case "Marketer":
-            case "Designer": node.tags =["IT_PROG"]
-            case "Sales Manager":
-                node.tags = ["Marketing"];
-                break;
-        }
-    };
-  
 
      chart = new OrgChart(document.getElementById("tree"), {
       mouseScrool: OrgChart.action.none,
@@ -251,7 +237,10 @@ chart.load([
 document.getElementById('icsv').addEventListener('click', function () {
         chart.importCSV();
     });
- 
+
+
+
+  
 };
 
  
