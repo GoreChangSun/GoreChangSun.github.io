@@ -130,19 +130,6 @@ window.onload = function () {
         { id: 7, stpid: 3 }
     ];
 
-   for (var i = 0; i < nodes.length; i++) {
-        var node = nodes[i];
-        switch (node.title) {
-            case "QA":
-                node.tags = ["QA"];
-                break;
-            case "Marketer":
-            case "Designer":
-            case "Sales Manager":
-                node.tags = ["Marketing"];
-                break;
-        }
-    };
   
  for (var i = 0; i < nodes.length; i++) {
         var node = nodes[i];
@@ -157,7 +144,6 @@ window.onload = function () {
                 break;
         }
     }
-
    
      chart = new OrgChart(document.getElementById("tree"), {
       mouseScrool: OrgChart.action.none,
